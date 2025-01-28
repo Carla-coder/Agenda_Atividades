@@ -19,6 +19,10 @@ Este projeto utiliza tecnologias modernas para criar uma experiência eficiente 
 
 A tela inicial exibe um formulário para adicionar tarefas, com os campos para título, prioridade, e data/hora, e uma lista de tarefas organizadas de acordo com suas prioridades.
 
+- Tela Inicial
+
+![tela inicial](https://github.com/user-attachments/assets/407370d4-1f22-4d0f-a711-7f4cd0616e03)
+
 ## 💻 Tecnologias Utilizadas
 
 - **HTML5**: Estrutura da página.
