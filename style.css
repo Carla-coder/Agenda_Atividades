@@ -1,0 +1,276 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-image: url('image/espaço.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: global;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+header {
+  background-color: #3498db;
+  height: 80px;
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky; /* Torna o header fixo */
+  top: 0;
+  z-index: 10; /* Garante que ele fique acima dos outros elementos */
+}
+
+header h1 {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+}
+
+.task-form {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  position: sticky; /* Torna o formulário fixo */
+  top: 80px; /* Fica logo abaixo do header */
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 9;
+  margin-bottom: 20px;
+}
+
+.task-form input[type='datetime-local'],
+.task-form input,
+.task-form select {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  margin: auto;
+  border: 3px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Transição ao passar o mouse */
+.task-form input:hover,
+.task-form select:hover {
+  border-color: #3498db; /* Altera a cor da borda quando o mouse passa por cima */
+  background-color: #e6f1fb;
+}
+
+.task-form button {
+  padding: 10px 20px;
+  margin: auto;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background-color: #45a049;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: calc(
+    100vh - 160px
+  ); /* Altura total da tela menos header e task-form */
+  overflow-y: auto; /* Habilita rolagem na lista */
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.task-item span {
+  flex: 1;
+  font-size: 16px;
+}
+
+.task-item .priority {
+  font-weight: bold;
+  color: #f39c12;
+}
+
+/* Prioridade Alta (Vermelho) */
+.task-item .priority.high {
+  color: red;
+}
+
+/* Prioridade Média (Amarelo) */
+.task-item .priority.medium {
+  color: #f39c12;
+}
+
+/* Prioridade Baixa (Verde) */
+.task-item .priority.low {
+  color: green;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-actions button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-actions .edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.task-actions .edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.task-actions .remove-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.task-actions .remove-btn:hover {
+  background-color: #c0392b;
+}
+
+.task-actions .complete-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.task-actions .complete-btn:hover {
+  background-color: #27ae60;
+}
+
+.task-edit input {
+  width: 70%;
+  padding: 5px;
+}
+
+/* Para telas maiores que 1024px (Desktops grandes) */
+@media (min-width: 1025px) {
+  .task-form {
+    flex-wrap: nowrap; /* Todos os elementos ficam em uma única linha */
+    gap: 15px; /* Espaçamento maior entre os elementos */
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form button {
+    width: auto; /* Largura automática */
+    margin-bottom: 0;
+  }
+
+  .task-list {
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+
+  .task-item {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .task-actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Para tablets (entre 601px e 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .task-form {
+    flex-wrap: wrap; /* Permite que os itens do formulário se movam para a linha seguinte */
+    gap: 15px;
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form button {
+    width: 48%; /* Deixa os inputs e botões com 48% de largura para dois elementos por linha */
+    margin-bottom: 10px;
+  }
+
+  .task-list {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .task-item {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .task-actions button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Para telas pequenas (até 600px) */
+@media (max-width: 600px) {
+  .task-form {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form button {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  .task-list {
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  .task-item {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .task-actions button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}

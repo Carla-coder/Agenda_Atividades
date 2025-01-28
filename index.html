@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Tarefas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Agenda de Atividades</h1>
+      </header>
+
+      <div class="task-form">
+        <input
+          type="text"
+          id="taskTitle"
+          placeholder="Adicione uma nova tarefa"
+          required
+        />
+
+        <select id="taskPriority">
+          <option value="low">Baixa</option>
+          <option value="medium">Média</option>
+          <option value="high">Alta</option>
+        </select>
+
+        <input type="datetime-local" id="taskDateTime" required />
+        <button id="addTaskButton">Adicionar Tarefa</button>
+      </div>
+
+      <!-- Tarefas serão listadas aqui -->
+      <ul id="taskList" class="task-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
